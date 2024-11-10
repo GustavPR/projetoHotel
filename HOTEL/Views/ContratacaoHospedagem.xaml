@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HOTEL.Views.ContratacaoHospedagem">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="10" BackgroundColor="White">
+            <!-- Imagem de fundo -->
+            <Image Source="ceu_estrelado.png" 
+                   Aspect="AspectFill" 
+                   HeightRequest="300" 
+                   HorizontalOptions="FillAndExpand"/>
+
+            <Label Text="Cálculo da Diária"
+                   FontFamily="DeliusSwashCapsRegular"
+                   FontSize="50"
+                   TextColor="BlueViolet" 
+                   HorizontalOptions="Center"/>
+
+            <Frame Padding="10" Margin="0,10" BackgroundColor="Lightblue">
+                <VerticalStackLayout>
+                    <Grid RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*, *, 2*">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Adultos:"/>
+                        <Label Grid.Row="0" Grid.Column="1" TextColor="{StaticResource Primary}" 
+                               Text="{Binding Source={x:Reference stp_adultos}, Path=Value}"/>
+                               
+                        <Stepper Grid.Row="0" Grid.Column="2" x:Name="stp_adultos"
+                                 Minimum="0" Maximum="10" Increment="1"/>
+                        
+                        <Label Grid.Row="1" Grid.Column="0" Text="Crianças:"/>
+                        <Label Grid.Row="1" Grid.Column="1" TextColor="{StaticResource Primary}" 
+                               Text="{Binding Source={x:Reference stp_crianças}, Path=Value}"/>
+                        <Stepper Grid.Row="1" Grid.Column="2" x:Name="stp_crianças"
+                                 Minimum="0" Maximum="10" Increment="1"/>
+
+                        <Label Grid.Row="2" Grid.ColumnSpan="3" Text="Escolha a sua Suíte" 
+                               HorizontalOptions="Center" Margin="0,10" FontFamily="DeliusSwashCapsRegular" 
+                               FontSize="20" TextColor="BlueViolet" />
+                    </Grid>
+
+                    <Picker x:Name="pck_quarto" Title="Selecione a acomodação" ItemDisplayBinding="{Binding Descricao}" Margin="0,10" BackgroundColor="White"/>
+
+                    <Frame Padding="10" Margin="10,0" BackgroundColor="Lightblue">
+                        <VerticalStackLayout>
+                            <Label Text="Período da Estadia" 
+                                   FontSize="20" 
+                                   HorizontalOptions="Center"
+                                   TextColor="BlueViolet"
+                                   FontFamily="DeliusSwashCapsRegular"/>
+
+                            <HorizontalStackLayout Margin="0,10,0,0">
+                                <Label Text="Check-in:" VerticalOptions="Center"/>
+                                <DatePicker x:Name="dtpck_checkin"  DateSelected="dtpck_checkin_DateSelected" Format="dd/MM/yyyy" VerticalOptions="Center" BackgroundColor="White"/>
+                            </HorizontalStackLayout>
+                            
+                            <HorizontalStackLayout Margin="0,10,0,0">
+                                <Label Text="Check-out:" VerticalOptions="Center"/>
+                                <DatePicker x:Name="dtpck_checkout" Format="dd/MM/yyyy" VerticalOptions="Center"  BackgroundColor="White"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <StackLayout Spacing="20" HorizontalOptions="Center">
+                        <Button Text="Avançar" HorizontalOptions="Center" Margin="0,20,0,0" Clicked="Button_Clicked"/>
+                        <Button Text="Sobre" Clicked="OnSobreClicked" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

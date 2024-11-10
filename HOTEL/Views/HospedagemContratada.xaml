@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HOTEL.Views.HospedagemContratada"
+             BackgroundColor="White">
+
+    <VerticalStackLayout Padding="20" VerticalOptions="CenterAndExpand" Spacing="20">
+        <!-- Title -->
+        <Label Text="Suite Super de Luxo" 
+               TextColor="BlueViolet" 
+               FontFamily="DeliusSwashCapsRegular" 
+               FontSize="40" 
+               HorizontalTextAlignment="Center" 
+               Margin="0,0,0,10"/>
+
+        <!-- Number of People (Adults & Children) -->
+        <Frame Margin="10" Padding="10" Background="LightBlue" CornerRadius="10" HasShadow="True">
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Adultos" FontAttributes="Bold"/>
+                    <Label Text="2" TextColor="BlueViolet" HorizontalOptions="EndAndExpand"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout >
+                    <Label Text="Crianças" FontAttributes="Bold"/>
+                    <Label Text="1" TextColor="BlueViolet" HorizontalOptions="EndAndExpand"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Check-in Details -->
+        <Frame Margin="10" Padding="15" Background="LightBlue"  CornerRadius="10" HasShadow="True">
+            <Grid ColumnDefinitions="*, *, *" RowDefinitions="Auto, Auto">
+                <Label Grid.Row="0" Grid.Column="0" Text="Check-in:" FontAttributes="Bold"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="Check-out:" FontAttributes="Bold"/>
+                <Label Grid.Row="0" Grid.Column="2" Text="Estadia:" FontAttributes="Bold"/>
+
+                <!-- Actual Dates and Stay Duration -->
+                <Label Grid.Row="1" Grid.Column="0" Text="2024-11-10" HorizontalTextAlignment="Center"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="2024-11-15" HorizontalTextAlignment="Center"/>
+                <Label Grid.Row="1" Grid.Column="2" Text="5 dias" HorizontalTextAlignment="Center"/>
+            </Grid>
+        </Frame>
+
+        <!-- Total Value -->
+        <Frame Margin="10" Padding="15" Background="LightBlue"  CornerRadius="10" HasShadow="True">
+            <VerticalStackLayout>
+                <Label Text="Valor Total:" FontAttributes="Bold"/>
+                <Label Text="R$ 2.000,00" TextColor="BlueViolet" FontSize="24" HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Back Button -->
+        <Button Text="Voltar" 
+                HorizontalOptions="Center" 
+                VerticalOptions="End" 
+                BackgroundColor="BlueViolet"
+                TextColor="White"
+                Padding="10,5" 
+                CornerRadius="20"
+                Clicked="Button_Clicked" />
+    </VerticalStackLayout>
+
+</ContentPage>
